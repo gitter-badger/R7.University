@@ -219,15 +219,8 @@ namespace R7.University.Employee
 				}
 			}
 
-			if (imageVisible)
-			{
-				// imagePhoto.Attributes.Add("onclick", Utils.EditUrl (this, "Details", "employee_id", EmployeeID.ToString ()));
-				linkPhoto.NavigateUrl = Utils.EditUrl (this, "Details", "employee_id", EmployeeID.ToString ());
-			}
-
 			// REVIEW: Need to add fallback image?
-			linkPhoto.Visible = imageVisible;
-			// imagePhoto.Visible = imageVisible;
+			imagePhoto.Visible = imageVisible;
 
 			// Academic degree & title
 			var degreeAndTitle = Utils.FormatList (", ", employee.AcademicDegree, employee.AcademicTitle);
@@ -380,19 +373,6 @@ namespace R7.University.Employee
 					Utils.EditUrl (this, "Edit", "employee_id", EmployeeID.ToString ()),
 					false, 
 					DotNetNuke.Security.SecurityAccessLevel.Edit,
-					existingEmployee, 
-					false
-				);
-
-				actions.Add (
-					GetNextActionID (), 
-					Localization.GetString("Details.Action", this.LocalResourceFile),
-					ModuleActionType.ContentOptions, 
-					"", 
-					"", 
-					Utils.EditUrl (this, "Details", "employee_id", EmployeeID.ToString ()),
-					false, 
-					DotNetNuke.Security.SecurityAccessLevel.View,
 					existingEmployee, 
 					false
 				);

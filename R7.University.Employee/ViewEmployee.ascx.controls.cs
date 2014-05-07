@@ -13,7 +13,6 @@ namespace R7.University.Employee
 	{
 		protected Panel panelEmployee;
 		protected Image imagePhoto;
-		protected HyperLink linkPhoto;
 		protected Label labelFullName;
 		protected Label labelPositions;
 		protected Label labelAcademicDegreeAndTitle;
