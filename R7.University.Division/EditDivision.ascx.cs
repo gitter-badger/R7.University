@@ -4,12 +4,13 @@ using System.Web.UI.WebControls;
 using System.Linq;
 using DotNetNuke.Common;
 using DotNetNuke.Common.Utilities;
-using DotNetNuke.Entities.Modules;
+using DotNetNuke.Entities.Tabs;
 using DotNetNuke.Entities.Content.Taxonomy;
+using DotNetNuke.Framework;
 using DotNetNuke.Services.Exceptions;
 using DotNetNuke.Services.Localization;
-using DotNetNuke.UI.UserControls;
-using DotNetNuke.Web.UI.WebControls;
+using DotNetNuke.Web.Client;
+using DotNetNuke.Web.Client.ClientResourceManagement;
 using R7.University;
 
 namespace R7.University.Division
@@ -28,6 +29,14 @@ namespace R7.University.Division
 		protected override void OnInit (EventArgs e)
 		{
 			base.OnInit (e);
+
+			jQuery.RequestDnnPluginsRegistration();
+			//ClientResourceManager.RegisterScript(Page, "~/Resources/Shared/Scripts/dnn.extensions.js", FileOrder.Js.DefaultPriority);
+			//ClientResourceManager.RegisterScript(Page, "~/Resources/Shared/scripts/dnn.jquery.extensions.js", FileOrder.Js.DefaultPriority + 1);
+			//ClientResourceManager.RegisterScript(Page, "~/DesktopModules/Admin/Tabs/ClientScripts/dnn.PageUrl.js", FileOrder.Js.DefaultPriority + 2);
+			ServicesFramework.Instance.RequestAjaxAntiForgerySupport();
+
+
 
 			// set url for Cancel link
 			linkCancel.NavigateUrl = Globals.NavigateURL ();
@@ -153,6 +162,13 @@ namespace R7.University.Division
 							else
 								// or set to "None", if Url is empty
 								urlHomePage.UrlType = "N";
+
+							//pageHomePage.Sele
+							/*
+							var tabc = new TabController();
+							var tab = tabc.GetTab(item.HomePageTabID, PortalId, true);
+							if (tab != null) // not need this?
+								pageHomePage.SelectedPage = tab;*/
 
 							// setup audit control
 							ctlAudit.CreatedByUser = Utils.GetUserDisplayName(item.CreatedByUserID);

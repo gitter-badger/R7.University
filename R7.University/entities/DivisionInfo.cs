@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using DotNetNuke.Data;
+using DotNetNuke.Common.Utilities;
 using DotNetNuke.ComponentModel.DataAnnotations;
 using DotNetNuke.Entities.Portals;
 using DotNetNuke.Entities.Users;
@@ -51,6 +52,20 @@ namespace R7.University
 		public string WorkingHours { get; set; }
 
 		#endregion
+
+		[IgnoreColumn]
+		public int HomePageTabID
+		{
+			get
+			{
+				int tabId;
+
+				if (!int.TryParse (HomePage, out tabId))
+					tabId = Null.NullInteger;
+
+				return tabId;
+			}
+		}
 
 		[IgnoreColumn]
 		public string FileName 

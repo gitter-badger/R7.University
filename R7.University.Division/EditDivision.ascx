@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="false" CodeBehind="EditDivision.ascx.cs" Inherits="R7.University.Division.EditDivision" %>
+﻿<%@ Control Language="C#" AutoEventWireup="false" EnableViewState="true" CodeBehind="EditDivision.ascx.cs" Inherits="R7.University.Division.EditDivision" %>
 <%@ Register TagPrefix="dnn" TagName="Label" Src="~/controls/labelcontrol.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="Audit" Src="~/controls/ModuleAuditControl.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="Url" Src="~/controls/URLControl.ascx" %>
@@ -32,6 +32,13 @@
 					ShowLog="false" ShowTrack="false"
 					ShowNone="true" ShowNewWindow="false" />      
 		</div>
+
+		<div class="dnnFormItem">
+			<dnn:Label id="lblHomePage2" runat="server" ControlName="pageHomePage" Suffix=":" />
+		 	<dnn:DnnPageDropDownList ID="pageHomePage" runat="server" 
+		 	IncludeAllTabTypes="True" IncludeDisabledTabs="True" AutoPostBack="true" />
+		</div>
+
 		<div class="dnnFormItem">
 			<dnn:Label id="lblWebSite" runat="server" ControlName="txtWebSite" Suffix=":" />
 			<asp:TextBox id="txtWebSite" runat="server" />

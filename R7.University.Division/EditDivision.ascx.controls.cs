@@ -28,6 +28,7 @@ namespace R7.University.Division
 
 		protected LabelControl lblHomePage;
 		protected UrlControl urlHomePage;
+		protected DnnPageDropDownList pageHomePage;
 		protected LabelControl lblWebSite;
 		protected TextBox txtWebSite;
 		protected LabelControl lblPhone;
